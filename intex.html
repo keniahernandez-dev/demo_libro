@@ -1,1 +1,97 @@
-# demo_libro
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopción de Mascotas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfaf6; /* Fondo crema claro */
+            color: #4a3728; /* Marrón oscuro para texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .text-section {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.8; }
+
+        .buttons { display: flex; gap: 15px; }
+
+        .btn {
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary { background-color: #f08989; color: white; }
+        .btn-secondary { border: 2px solid #f08989; color: #f08989; }
+
+        .image-section {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .image-section { min-height: 400px; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="container">
+        <div class="text-section">
+            <h3>🐾 Ellos solo necesitan</h3>
+            <h1>una oportunidad</h1>
+            <p>Cada uno tiene una historia, pero todos comparten el mismo sueño: encontrar una familia.</p>
+            <div class="buttons">
+                <a href="#" class="btn btn-primary">Conocer a los perritos</a>
+                <a href="#" class="btn btn-secondary">Quiero adoptar</a>
+            </div>
+        </div>
+        <div class="image-section"></div>
+    </section>
+
+</body>
+</html>
