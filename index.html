@@ -4,262 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adopción de Mascotas</title>
-    <!-- Google Fonts: Solo Montserrat con pesos 400 (normal) y 800 (extra bold) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #fdfaf6; /* Fondo crema claro general */
-            color: #4a3728; /* Marrón oscuro para el texto */
+            background-color: #fdfaf6;
+            color: #4a3728;
             padding: 40px 20px;
         }
 
-        .page-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 80px; /* Espaciado entre el bloque principal y el nuevo slide */
-        }
+        .page-wrapper { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
+
+        /* ... (Estilos de secciones anteriores se mantienen igual) ... */
 
         /* ==========================================
-           SECCIÓN 1: HERO (De la primera imagen)
+           SECCIÓN 3: NUESTROS PELUDITOS
            ========================================== */
-        .hero-container {
-            display: flex;
-            flex-wrap: wrap;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .text-section {
-            flex: 1;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .pets-section { text-align: center; }
         
-        h1 {
-            font-size: 2.8rem; 
-            line-height: 1.2;
-            margin-bottom: 20px;
+        .section-title { 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
             text-transform: uppercase; 
-            font-weight: 800; /* Alta importancia */
-            letter-spacing: -1px;
+            font-weight: 800;
         }
 
-        .hero-container p { 
-            font-size: 1.1rem; 
-            line-height: 1.6;
-            margin-bottom: 35px; 
-            opacity: 0.8; 
-            font-weight: 400; /* Normal */
-        }
-
-        .buttons { display: flex; gap: 15px; flex-wrap: wrap; }
-
-        .btn {
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800; 
-            font-size: 0.9rem;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        .btn-primary { background-color: #f08989; color: white; }
-        .btn-secondary { border: 2px solid #f08989; color: #f08989; }
-
-        .image-section {
-            flex: 1;
-            background-image: url('perritos.jpeg'); 
-            background-size: contain; 
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 350px;
-        }
-
-        /* ==========================================
-           SECCIÓN 2: SLIDE ADOPTAR (Nueva imagen)
-           ========================================== */
-        .slide-adopt-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        /* Columna Izquierda: Ilustración */
-        .slide-left {
-            flex: 1;
-            max-width: 250px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slide-left img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* Columna Central: Textos informativos */
-        .slide-center {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .slide-title-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 5px;
-        }
-
-        .paw-icon {
-            color: #f08989;
-            font-size: 1.8rem;
-        }
-
-        .slide-center h2 {
-            font-size: 1.8rem;
-            font-weight: 800; /* Importancia alta */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #f08989;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        .slide-center p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-weight: 400; /* Normal e informativo */
-            opacity: 0.85;
-        }
-
-        /* Columna Derecha: Tarjeta destacada */
-        .slide-right {
-            flex: 1;
-            max-width: 280px;
-            background-color: #fbebeb; /* Rosado muy suave similar a la tarjeta */
-            border-radius: 30px;
-            padding: 35px 25px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            box-shadow: inset 0 0 15px rgba(240, 137, 137, 0.1);
         }
 
-        .card-highlight-text {
-            font-size: 1.15rem;
-            line-height: 1.5;
-            font-weight: 800; /* Resaltado de importancia */
-            color: #4a3728;
+        .pet-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
         }
 
-        .heart-icon {
-            color: #f08989;
-            font-size: 1.5rem;
+        .pet-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
         }
 
+        .pet-card h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
+        .pet-card ul { list-style: none; margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8; }
+        .pet-card li { margin-bottom: 5px; }
 
-        /* ==========================================
-           RESPONSIVE DESIGN (Adaptación Móvil)
-           ========================================== */
-        @media (max-width: 900px) {
-            .slide-adopt-container {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-            .slide-title-wrapper {
-                justify-content: center;
-            }
-            .slide-left, .slide-right {
-                max-width: 100%;
-                width: 100%;
-            }
-            .slide-right {
-                margin-top: 20px;
-            }
+        .btn-pet {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background-color: #f08989;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
-            .hero-container { flex-direction: column; }
-            .image-section { min-height: 300px; }
-            .text-section { padding: 30px 20px; }
-            h1 { font-size: 2rem; }
-            .page-wrapper { gap: 40px; }
+            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="page-wrapper">
-
-        <!-- SECCIÓN 1: BIENVENIDA (Hero) -->
-        <section class="hero-container">
-            <div class="text-section">
-                <h1>Ellos solo necesitan<br>una oportunidad</h1>
-                <p>Cada uno tiene una historia, pero todos comparten el mismo sueño: encontrar una familia.</p>
-                <div class="buttons">
-                    <a href="#" class="btn btn-primary">Conocer a los perritos</a>
-                    <a href="#" class="btn btn-secondary">Quiero adoptar</a>
-                </div>
-            </div>
-            <div class="image-section"></div>
-        </section>
-
-        <!-- SECCIÓN 2: ¿POR QUÉ ADOPTAR? (Nuevo Slide) -->
-        <section class="slide-adopt-container">
+        <section class="pets-section">
+            <h2 class="section-title"> Nuestros peluditos 🤍</h2>
             
-            <!-- Izquierda: Ilustración (Reemplaza 'ilustracion-corazon.png' con tu archivo gráfico) -->
-            <div class="slide-left">
-                <img src="ilustracion-corazon.png" alt="Ilustración de adopción y amor animal">
-            </div>
-
-            <!-- Centro: Información -->
-            <div class="slide-center">
-                <div class="slide-title-wrapper">
-                    <span class="paw-icon">🐾</span>
-                    <h2>¿Por qué adoptar?</h2>
+            <div class="pets-grid">
+                <div class="pet-card">
+                    <div class="pet-img" style="background-image: url('lobita.jpg');"></div>
+                    <h3>LOBITA</h3>
+                    <ul>
+                        <li>Talla grande</li>
+                        <li>Esterilizada</li>
+                        <li> Desparasitada</li>
+                        <li> Juguetona</li>
+                    </ul>
+                    <a href="#" class="btn-pet">❤ Quiero conocer a Lobita</a>
                 </div>
-                <p>Miles de perros esperan una segunda oportunidad. Algunos fueron abandonados, otros sobrevivieron a situaciones difíciles, pero todos siguen creyendo en el amor de una familia.</p>
-                <p>A los que siguen moviendo la cola después de haber sido lastimados, a los que aún confían en las personas después de haber sido abandonados y a los que esperan, con paciencia infinita, una segunda oportunidad.</p>
-                <p>Que estas páginas sean un recordatorio de que cada vida importa, de que el amor puede cambiar destinos y de que ningún ser debería pasar sus días sin un hogar, una caricia y alguien a quien llamar familia.</p>
-            </div>
+                
+                <div class="pet-card">
+                    <div class="pet-img" style="background-image: url('choky.jpg');"></div>
+                    <h3>CHOKY</h3>
+                    <ul>
+                        <li> 3 años</li>
+                        <li>Sociable con otros perros</li>
+                        <li>Juguetona</li>
+                        <li>Muy activa</li>
+                    </ul>
+                    <a href="#" class="btn-pet">❤ Quiero conocer a Choky</a>
+                </div>
 
-            <!-- Derecha: Tarjeta de pensamiento destacado -->
-            <div class="slide-right">
-                <span class="paw-icon">🐾</span>
-                <p class="card-highlight-text">Cada vida importa.<br>Cada historia merece<br>un final feliz.</p>
-                <span class="heart-icon">❤️</span>
-            </div>
+                <div class="pet-card">
+                    <div class="pet-img" style="background-image: url('sally.jpg');"></div>
+                    <h3>SALLY</h3>
+                    <ul>
+                        <li>2 años</li>
+                        <li> Rescatada</li>
+                        <li>Cariñosa</li>
+                        <li> Protectora</li>
+                    </ul>
+                    <a href="#" class="btn-pet">❤ Quiero conocer a Sally</a>
+                </div>
 
+                <div class="pet-card">
+                    <div class="pet-img" style="background-image: url('guero.jpg');"></div>
+                    <h3>GÜERO</h3>
+                    <ul>
+                        <li>Adulto mayor</li>
+                        <li>Rescatado</li>
+                        <li>Tranquilo</li>
+                        <li>Busca un hogar definitivo</li>
+                    </ul>
+                    <a href="#" class="btn-pet">❤ Quiero conocer a Güero</a>
+                </div>
+            </div>
         </section>
-
     </div>
 
 </body>
