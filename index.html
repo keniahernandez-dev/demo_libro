@@ -252,18 +252,21 @@
 
     <div class="page-wrapper">
 
+        <!-- SECCIÓN 1: HERO -->
         <section class="hero-container">
             <div class="text-section">
                 <h1>Ellos solo necesitan<br>una oportunidad</h1>
                 <p>Cada uno tiene una historia, pero todos comparten el mismo sueño: encontrar una familia.</p>
                 <div class="buttons">
                     <a href="#nuestros-peluditos" class="btn btn-primary">Conocer a los perritos</a>
+                    <!-- ENLACE CORREGIDO: Redirige directamente al formulario del final -->
                     <a href="#quiero-adoptar-seccion" class="btn btn-secondary">Quiero adoptar</a>
                 </div>
             </div>
             <div class="image-section"></div>
         </section>
 
+        <!-- SECCIÓN 2: ¿POR QUÉ ADOPTAR? -->
         <section class="slide-adopt-container">
             <div class="slide-left"><img src="ilustracion-corazon.png" alt="Ilustración"></div>
             <div class="slide-center">
@@ -276,8 +279,10 @@
             </div>
         </section>
 
+        <!-- CONTENEDOR DINÁMICO ALTERNANTE (1/4 DE PANTALLA) -->
         <div class="dynamic-banner-wrapper">
             
+            <!-- Bloque Proceso -->
             <section class="dynamic-component process-section active" id="banner-proceso">
                 <h2>Proceso de adopción</h2>
                 <div class="process-steps">
@@ -320,6 +325,7 @@
                 </div>
             </section>
 
+            <!-- Bloque Frase Inspiradora -->
             <section class="dynamic-component quote-banner" id="banner-frase">
                 <div class="quote-text-container">
                     <h2>Adoptar no cambia el mundo entero, pero cambia el mundo de alguien.</h2>
@@ -329,6 +335,7 @@
 
         </div>
 
+        <!-- SECCIÓN 3: NUESTROS PELUDITOS -->
         <section class="pets-section" id="nuestros-peluditos">
             <h2 class="section-title">Nuestros peluditos</h2>
             <div class="pets-grid">
@@ -393,6 +400,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN 4: QUIERO ADOPTAR (FORMULARIO INTERACTIVO) -->
         <section class="adoption-form-container" id="quiero-adoptar-seccion">
             <div class="form-info-side">
                 <h2>Quiero adoptar</h2>
@@ -436,6 +444,7 @@
 
     </div>
 
+    <!-- SCRIPT PARA INTERCAMBIO ALEATORIO Y EN BUCLE -->
     <script>
         const banners = document.querySelectorAll('.dynamic-component');
         let currentIndex = 0;
