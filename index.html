@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* CONFIGURACIÓN GENERAL */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
         body {
@@ -18,7 +19,7 @@
 
         .page-wrapper { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
 
-        /* HERO */
+        /* SECCIÓN 1: HERO */
         .hero-container { display: flex; flex-wrap: wrap; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
         .text-section { flex: 1; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
         h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; text-transform: uppercase; font-weight: 800; letter-spacing: -1px; }
@@ -30,27 +31,39 @@
         .btn-secondary { border: 2px solid #f08989; color: #f08989; }
         .image-section { flex: 1; background-image: url('perritos.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 350px; }
 
-        /* SLIDE 2 */
+        /* SECCIÓN 2: ¿POR QUÉ ADOPTAR? */
         .slide-adopt-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; background: white; padding: 50px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
         .slide-left { flex: 1; max-width: 230px; display: flex; justify-content: center; align-items: center; }
         .slide-center { flex: 2; display: flex; flex-direction: column; gap: 15px; }
         .slide-center h2 { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; border-bottom: 2px solid #f08989; padding-bottom: 5px; display: inline-block; }
+        .slide-center p { font-size: 0.95rem; line-height: 1.6; font-weight: 400; opacity: 0.85; }
         .slide-right { flex: 1; max-width: 280px; background-color: #fbebeb; border-radius: 30px; padding: 35px 20px; text-align: center; }
         .card-highlight-text { font-size: 1.1rem; line-height: 1.5; font-weight: 700; color: #4a3728; }
 
-        /* SLIDE 3 */
+        /* SECCIÓN 3: NUESTROS PELUDITOS */
         .pets-section { text-align: center; }
         .section-title { font-size: 2rem; text-transform: uppercase; font-weight: 800; margin-bottom: 40px; }
         .pets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
-        .pet-card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); text-align: left; }
+        .pet-card { background: white; padding: 25px 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
         .pet-img-container { width: 100%; height: 220px; margin-bottom: 15px; border-radius: 15px; background-size: cover; background-position: center; }
-        .pet-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 800; }
+        .pet-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 800; text-transform: uppercase; }
         .pet-card ul { list-style: none; margin-bottom: 25px; font-size: 0.9rem; }
-        .pet-card li { margin-bottom: 8px; opacity: 0.85; font-weight: 400; }
-        .btn-pet { display: block; text-align: center; padding: 12px 15px; background-color: #f08989; color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 0.85rem; }
+        .pet-card li { margin-bottom: 8px; opacity: 0.85; font-weight: 400; position: relative; padding-left: 15px; }
+        .pet-card li::before { content: "•"; color: #f08989; font-weight: bold; position: absolute; left: 0; }
+        .btn-pet { display: block; text-align: center; padding: 12px 15px; background-color: #f08989; color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 0.85rem; transition: background-color 0.2s; }
+        .btn-pet:hover { background-color: #e27676; }
+
+        @media (max-width: 950px) {
+            .slide-adopt-container { flex-direction: column; text-align: center; }
+            .slide-left, .slide-right { max-width: 100%; width: 100%; }
+        }
 
         @media (max-width: 768px) {
-            .hero-container, .slide-adopt-container { flex-direction: column; text-align: center; }
+            .hero-container { flex-direction: column; }
+            .image-section { min-height: 300px; }
+            .text-section { padding: 35px 20px; }
+            h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -58,6 +71,7 @@
 
     <div class="page-wrapper">
 
+        <!-- SECCIÓN 1: HERO -->
         <section class="hero-container">
             <div class="text-section">
                 <h1>Ellos solo necesitan<br>una oportunidad</h1>
@@ -70,6 +84,7 @@
             <div class="image-section"></div>
         </section>
 
+        <!-- SECCIÓN 2: ¿POR QUÉ ADOPTAR? -->
         <section class="slide-adopt-container">
             <div class="slide-left"><img src="ilustracion-corazon.png" alt="Ilustración"></div>
             <div class="slide-center">
@@ -82,20 +97,73 @@
             </div>
         </section>
 
+        <!-- SECCIÓN 3: NUESTROS PELUDITOS -->
         <section class="pets-section" id="nuestros-peluditos">
             <h2 class="section-title">Nuestros peluditos</h2>
             <div class="pets-grid">
+                
+                <!-- Tarjeta 1: Lobita -->
                 <div class="pet-card">
-                    <div class="pet-img-container" style="background-image: url('lobita.jpg');"></div>
-                    <h3>LOBITA</h3>
-                    <ul>
-                        <li>Talla grande</li>
-                        <li>Esterilizada</li>
-                        <li>Desparasitada</li>
-                    </ul>
+                    <div>
+                        <div class="pet-img-container" style="background-image: url('lobita.jpg');"></div>
+                        <h3>Lobita</h3>
+                        <ul>
+                            <li>Talla grande</li>
+                            <li>Esterilizada</li>
+                            <li>Desparasitada</li>
+                            <li>Juguetona</li>
+                            <li>Cariñosa</li>
+                        </ul>
+                    </div>
                     <a href="#" class="btn-pet">Quiero conocer a Lobita</a>
                 </div>
+                
+                <!-- Tarjeta 2: Choky -->
+                <div class="pet-card">
+                    <div>
+                        <div class="pet-img-container" style="background-image: url('choky.jpg');"></div>
+                        <h3>Choky</h3>
+                        <ul>
+                            <li>3 años</li>
+                            <li>Sociable con otros perros</li>
+                            <li>Juguetona</li>
+                            <li>Muy activa</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn-pet">Quiero conocer a Choky</a>
                 </div>
+
+                <!-- Tarjeta 3: Sally -->
+                <div class="pet-card">
+                    <div>
+                        <div class="pet-img-container" style="background-image: url('sally.jpg');"></div>
+                        <h3>Sally</h3>
+                        <ul>
+                            <li>2 años</li>
+                            <li>Rescatada</li>
+                            <li>Cariñosa</li>
+                            <li>Protectora</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn-pet">Quiero conocer a Sally</a>
+                </div>
+
+                <!-- Tarjeta 4: Güero -->
+                <div class="pet-card">
+                    <div>
+                        <div class="pet-img-container" style="background-image: url('guero.jpg');"></div>
+                        <h3>Güero</h3>
+                        <ul>
+                            <li>Adulto mayor</li>
+                            <li>Rescatado</li>
+                            <li>Tranquilo</li>
+                            <li>Busca un hogar definitivo</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn-pet">Quiero conocer a Güero</a>
+                </div>
+
+            </div>
         </section>
 
     </div>
